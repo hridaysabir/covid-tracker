@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { NativeSelect, FormControl } from "@material-ui/core";
 import styles from "./DistrictPicker.module.css";
-import { fetchDistricts } from "../../api";
+import { fetchCountries } from "../../api";
 
 const DistrictPicker = ({ handleCountryChange }) => {
   const [fetchedCountries, setFetchedCountries] = useState([]);
   useEffect(() => {
     const fetchAPI = async () => {
-      setFetchedCountries(await fetchDistricts());
+      setFetchedCountries(await fetchCountries());
     };
     fetchAPI();
   }, [setFetchedCountries]);

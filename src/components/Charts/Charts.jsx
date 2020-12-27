@@ -3,7 +3,7 @@ import { fetchDailyData } from "../../api";
 import { Line, Bar } from "react-chartjs-2";
 import styles from "./Charts.module.css";
 
-const Chart = ({ data: { confirmed, recovered, deaths }, district }) => {
+const Charts = ({ data: { confirmed, recovered, deaths }, country }) => {
   const [dailyData, setDailyData] = useState([]);
   useEffect(() => {
     const fetchAPI = async () => {
@@ -64,14 +64,14 @@ const Chart = ({ data: { confirmed, recovered, deaths }, district }) => {
       }}
       options={{
         legend: { display: false },
-        title: { display: true, text: `Current state in ${district}` },
+        title: { display: true, text: `Current state in ${country}` },
       }}
     />
   ) : null;
 
   return (
-    <div className={styles.container}>{district ? barChart : lineChart}</div>
+    <div className={styles.container}>{country ? barChart : lineChart}</div>
   );
 };
 
-export default Chart;
+export default Charts;
